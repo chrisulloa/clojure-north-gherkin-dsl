@@ -63,6 +63,9 @@ As an idea, I picture each step definition building up a state. The background d
 The state would be built up from the background and to the scenario's `given` and `when` steps, then the `then` steps would take that constructed state and apply asserts to figure out whether the state was properly constructed.
 ```
 (let [context (or background-context {})]
-  (loop [step steps]
-    (recur (rest steps) ((-> step :handler :handler-fn) context))))
+      final-context (loop [step steps]
+                      (recur (rest steps) ((-> step :handler :handler-fn) context)))]
+  (doseq [then thens]
+    ;; Asserts would be applied here after the final state is built up
+    ((-> then :handler :handler-fn) final-context)))
 ```

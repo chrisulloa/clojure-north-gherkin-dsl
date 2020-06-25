@@ -14,6 +14,9 @@ Scenario: A user pushes home button
   Then the user sees a confirmation that the button was pressed
 ```
 
+These feature files are purely text, to describe functionality of your program. They should enable product managers or non-programmers to define tests.
+Developers should be able to easily attach their code to each of these definitions.
+
 The Gherkin spec defines a list of valid keywords that are defined in feature files. These can be mapped to keywords in an EDN file:
 
 * Feature

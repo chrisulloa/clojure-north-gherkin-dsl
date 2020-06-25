@@ -69,3 +69,8 @@ The state would be built up from the background and to the scenario's `given` an
     ;; Asserts would be applied here after the final state is built up
     ((-> then :handler :handler-fn) final-context)))
 ```
+
+Afterthoughts:
+* Gherkins have a pretty well defined spec that can easily be translated into data, but the actual evaluation of the Gherkins would be a bigger challenge, generating reports and handling errors or improperly defined features.
+* How well would the syntax "scale" with a larger problem? I think that implementing asynchronous execution of these Gherkins would open up a lot of possibilities for users.
+* How easy is it to read vs. write vs. modify? Writing Gherkins is actually quite easy for non-programmers. Writing the actual step definitions in Clojure I think would be easy with a data driven model because a developer is aware of where his code will be attached in the feature files.
